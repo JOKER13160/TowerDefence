@@ -32,6 +32,7 @@ public class CharaController : MonoBehaviour
 
 
         // 攻撃中ではない場合で、かつ、敵の情報を未取得である場合
+        //!enemy=> enemy == null の状態
         if (!isAttack && !enemy)
         {　　　　　　　　　　　　　　　　　　　　　　　　//　<=　☆①　条件を修正します
 
@@ -102,6 +103,7 @@ public class CharaController : MonoBehaviour
 
             // １フレーム処理を中断する(この処理を書き忘れると無限ループになり、Unity エディターが動かなくなって再起動することになります。注意！)
             yield return null;
+           //yield return new WaitForSeconds(intervalAttackTime);
         }
     }
 
@@ -117,6 +119,19 @@ public class CharaController : MonoBehaviour
 
         // TODO 敵キャラ側に用意したダメージ計算用のメソッドを呼び出して、敵にダメージを与える
 
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        //接触しているゲームオブジェクトのEnemyControllerコンポーネントの情報が、
+        //enemy変数に格納されている場合、動作
+        if (collision.gameObject.TryGetComponent(out enemy))
+        {
+            Debug.Log("敵なし");
+
+            isAttack = false;
+            enemy = null;
+        }
     }
 
 
