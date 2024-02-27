@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9672553fd4946f84cb814b26c059a610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generateTran: {fileID: 0}
+  generateTran: {fileID: 7329432545092535130}
   pathTranArray:
   - {fileID: 7329432545092535130}
   - {fileID: 5213942199143074252}
