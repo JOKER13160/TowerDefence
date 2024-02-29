@@ -2868,6 +2868,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyControllerPrefab: {fileID: 3879496410523118915, guid: 507eb16bc45b6a148a0edf81b8c4f776, type: 3}
   pathData: {fileID: 2673027515195692986, guid: 6736804ffa033dc48a5bb3e66467d210, type: 3}
+  pathLinePrefab: {fileID: 560959724272644973, guid: 33a6fecb5df12b7468983d5ea571e7b1, type: 3}
 --- !u!4 &692256692
 Transform:
   m_ObjectHideFlags: 0
@@ -2914,7 +2915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyGenerator: {fileID: 692256691}
   isEnemyGenerate: 0
-  generateIntervalTime: 100
+  generateIntervalTime: 500
   generateEnemyCount: 0
   maxEnemyCount: 5
 --- !u!4 &741548629
