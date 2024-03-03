@@ -9,7 +9,7 @@ public class CharaController : MonoBehaviour
 
 
     [SerializeField, Header("UŒ‚—Í")]
-    private int attackPower = 1;
+    private float attackPower = 1;
 
     [SerializeField, Header("UŒ‚‚·‚é‚Ü‚Å‚Ì‘Ò‹@ŠÔ")]
     private float intervalAttackTime = 60.0f;
@@ -48,7 +48,7 @@ public class CharaController : MonoBehaviour
             // ‚»‚Ì‚½‚ßA™‡@‚Ìˆ—‚©‚ç Tag ‚Ìˆ—‚ğíœ‚µ‚Ä‚¢‚Ü‚·
             if (collision.gameObject.TryGetComponent(out enemy))
             {
-
+                Debug.Log("enemyæ“¾");
                 // î•ñ‚ğæ“¾‚Å‚«‚½‚çAUŒ‚ó‘Ô‚É‚·‚é
                 isAttack = true;
 

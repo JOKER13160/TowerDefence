@@ -14,10 +14,13 @@ public class EnemyController : MonoBehaviour
     private float moveSpeed;
 
     [SerializeField, Header("最大HP")]
-    private int maxHp;
+    private float maxHp;
 
     [SerializeField]
-    private int hp;
+    private float hp;
+
+    [SerializeField,Header("敵の攻撃力")]
+    public float attackPower;
 
 
     private Tween tween;
@@ -65,7 +68,7 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     private void ChangeAnimeDirection(int index)
     {
-        Debug.Log(index);
+        Debug.Log("index : "+index);
 
         //次の移動先の地点がない場合には、ここで処理を終了する
         if(index >= paths.Length)
@@ -76,7 +79,8 @@ public class EnemyController : MonoBehaviour
         //目標の位置と現在の位置との距離と方向を取得し、正規化処理を行い、
         //単位ベクトルとする(方向の情報は持ちつつ、距離による速度差をなくして一定値にする)
         Vector3 direction = (transform.position - paths[index]).normalized;
-        Debug.Log(direction);
+        Debug.Log("direction : "+direction);
+        
 
         //アニメーションの Palameter の値を更新し、
         //移動アニメの BlendTree を制御して移動の方向と移動アニメを同期
@@ -88,7 +92,7 @@ public class EnemyController : MonoBehaviour
     /// ダメージ計算
     /// </summary>
     /// <param name="amount"></param>
-    public void CulcDamage(int amount)
+    public void CulcDamage(float amount)
     {
 
         // Hp の値を減算した結果値を、最低値と最大値の範囲内に収まるようにして更新
