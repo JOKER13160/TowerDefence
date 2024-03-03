@@ -124,7 +124,7 @@ MonoBehaviour:
   moveSpeed: 30
   maxHp: 10
   hp: 10
-  attack: 1
+  attackPower: 1
 --- !u!61 &1818063401918494157
 BoxCollider2D:
   m_ObjectHideFlags: 0
