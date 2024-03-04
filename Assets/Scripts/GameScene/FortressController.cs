@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FortressController : MonoBehaviour
 {
@@ -10,10 +11,13 @@ public class FortressController : MonoBehaviour
     private float fortHp;
     [SerializeField]
     private EnemyController enemy;
+    [SerializeField]
+    private Slider slider;
 
     void Start()
     {
         fortHp = fortMaxHp;
+        slider.value = fortHp;
     }
 
     //ìGÇ™ê⁄êGÇµÇΩÇÁHPÇå∏ÇÁÇ∑
@@ -31,5 +35,6 @@ public class FortressController : MonoBehaviour
     {
         fortHp = Mathf.Clamp(fortHp - amount, 0, fortMaxHp);
         Debug.Log("écÇËHP : " + fortHp);
+        slider.value = fortHp;
     }
 }
