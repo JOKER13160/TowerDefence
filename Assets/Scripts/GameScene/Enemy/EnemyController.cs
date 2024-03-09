@@ -56,13 +56,6 @@ public class EnemyController : MonoBehaviour
         PauseMove();
     }
 
-    //void Update()
-    //{
-        // 敵の進行方向を取得
-        //ChangeAnimeDirection();
-    //}
-
-
     /// <summary>
     /// 敵の進行方向を取得して、移動アニメと同期
     /// </summary>
@@ -98,6 +91,7 @@ public class EnemyController : MonoBehaviour
         // Hp の値を減算した結果値を、最低値と最大値の範囲内に収まるようにして更新
         //Mathf.Clamp(x, y, z) => xは制御したい指定値、yは指定する範囲の最小値、zは最大値
         hp = Mathf.Clamp(hp -= amount, 0, maxHp);
+        //
 
         Debug.Log("残りHP : " + hp);
 
@@ -112,7 +106,8 @@ public class EnemyController : MonoBehaviour
         // TODO 演出用のエフェクト生成
 
 
-        // TODO ヒットストップ演出
+        // ヒットストップ演出
+        StartCoroutine(WaitMove());
 
     }
 
@@ -149,5 +144,16 @@ public class EnemyController : MonoBehaviour
     public void ResumeMove()
     {
         tween.Play();
+    }
+
+    /// <summary>
+    /// ヒットストップ演出
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator WaitMove()
+    {
+        tween.timeScale = 0.05f;
+        yield return new WaitForSeconds(0.5f);
+        tween.timeScale = 1.0f;
     }
 }

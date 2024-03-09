@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25878b62c1fe9434fbe7e69d2c48ab23, type: 3}
+  m_Name: CharaDataSO
+  m_EditorClassIdentifier: 
+  charaDatasList:
+  - charaNo: 0
+    cost: 100
+    charaSprite: {fileID: 0}
+    charaName: MachineGun
+    attackPower: 1
+    attackRange: 1
+    intervalAttackTime: 100
+    maxAttackCount: 100
+    discription: "\u6C4E\u7528\u6027\u304C\u9AD8\u304F\u3001\u30B3\u30B9\u30C8\u304C\u5B89\u3044\u30DE\u30B7\u30F3\u30AC\u30F3\u3002\n\u5BFE\u5730\u5BFE\u7A7A"
+  - charaNo: 1
+    cost: 200
+    charaSprite: {fileID: 0}
+    charaName: Cannon
+    attackPower: 5
+    attackRange: 0
+    intervalAttackTime: 300
+    maxAttackCount: 3
+    discription: "\u7BC4\u56F2\u653B\u6483\u306E\u30AD\u30E3\u30CE\u30F3\u3002\u77ED\u5C04\u7A0B\n\u5BFE\u5730"
+  - charaNo: 2
+    cost: 450
+    charaSprite: {fileID: 0}
+    charaName: RailGun
+    attackPower: 50
+    attackRange: 2
+    intervalAttackTime: 600
+    maxAttackCount: 1
+    discription: "\u8CAB\u901A\u529B\u306E\u9AD8\u3044\u30EC\u30FC\u30EB\u30AC\u30F3\n\u5BFE\u5730\u5BFE\u7A7A"
+  - charaNo: 3
+    cost: 200
+    charaSprite: {fileID: 0}
+    charaName: LaserCannon
+    attackPower: 5
+    attackRange: 1
+    intervalAttackTime: 50
+    maxAttackCount: 30
+    discription: "\u9023\u5C04\u304C\u901F\u3044\u30EC\u30FC\u30B6\u30FC\n\u5BFE\u5730\u5BFE\u7A7A(\u96E8\u306B\u5F31\u3044)"
+  - charaNo: 4
+    cost: 500
+    charaSprite: {fileID: 0}
+    charaName: Misille
+    attackPower: 70
+    attackRange: 3
+    intervalAttackTime: 1000
+    maxAttackCount: 1
+    discription: "\u9577\u8DDD\u96E2\u30DF\u30B5\u30A4\u30EB\u3002\u8FD1\u304F\u306E\u6575\u306B\u653B\u6483\u3067\u304D\u306A\u3044\n\u5BFE\u5730"

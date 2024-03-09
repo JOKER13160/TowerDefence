@@ -1,13 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CharaController : MonoBehaviour
 {
-
-    ////*  ここから変数の宣言を追加する  *////
-
-
     [SerializeField, Header("攻撃力")]
     private float attackPower = 1;
 
@@ -20,29 +17,19 @@ public class CharaController : MonoBehaviour
     [SerializeField]
     private EnemyController enemy;
 
+    [SerializeField]
+    private int attackCount = 10;
 
-    ////*  ここまで  *////
-
+    [SerializeField]
+    private TextMeshProUGUI attackCountText;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-
-
-        ////*  ここから☆①～③の処理を追加・修正  *////
-
-
         // 攻撃中ではない場合で、かつ、敵の情報を未取得である場合
         //!enemy=> enemy == null の状態
         if (!isAttack && !enemy)
-        {　　　　　　　　　　　　　　　　　　　　　　　　//　<=　☆①　条件を修正します
-
+        {　　　　　　　　　　　　　　　　　　　　　　　　
             Debug.Log("敵発見");
-
-            //Destroy(collision.gameObject);　　　　　　 //　<=　☆②　不要になったのでコメントアウトするか、削除します
-
-
-            ////*  ☆③　TODO の各処理を実装  *////
-
 
             // 敵の情報(EnemyController)を取得する。EnemyController がアタッチされているゲームオブジェクトを判別しているので、ここで、今までの Tag による判定と同じ動作で判定が行えます。
             // そのため、☆①の処理から Tag の処理を削除しています
@@ -55,17 +42,8 @@ public class CharaController : MonoBehaviour
                 // 攻撃の準備に入る
                 StartCoroutine(PrepareteAttack());
             }
-
-
-            ////*  ここまで  *////
-
-
         }
     }
-
-
-    ////*  ここからメソッドを２つ追加  *////
-
 
     /// <summary>
     /// 攻撃準備
@@ -96,7 +74,20 @@ public class CharaController : MonoBehaviour
                 // 攻撃
                 Attack();
 
-                // TODO 攻撃回数関連の処理をここに記述する
+                // 攻撃回数関連の処理をここに記述する            
+                attackCount--;
+                UpdateDisplayAttackCount();
+
+                // TODO 残り攻撃回数の表示更新
+
+
+                // 攻撃回数がなくなったら
+                if (attackCount <= 0)
+                {
+
+                    // キャラ破壊
+                    Destroy(gameObject);
+                }
 
 
             }
@@ -134,8 +125,11 @@ public class CharaController : MonoBehaviour
         }
     }
 
-
-    ////*  ここまで  *////
-
-
+    /// <summary>
+    /// 残り攻撃回数の表示更新
+    /// </summary>
+    private void UpdateDisplayAttackCount()
+    {
+        attackCountText.text = attackCount.ToString();
+    }
 }
