@@ -9,6 +9,7 @@ public class CharaData
     public int charaNo;
     public int cost;
     public Sprite charaSprite;
+    public AnimationClip charaAnim;
     public string charaName;
 
     public int attackPower;
