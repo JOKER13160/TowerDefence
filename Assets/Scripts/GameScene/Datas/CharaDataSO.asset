@@ -15,7 +15,7 @@ MonoBehaviour:
   charaDatasList:
   - charaNo: 0
     cost: 100
-    charaSprite: {fileID: 0}
+    charaSprite: {fileID: -1628226564, guid: d9a64415e56763745956bbab20fb1b7f, type: 3}
     charaAnim: {fileID: 7400000, guid: 69852be7b1d0a394698c19ce10111905, type: 2}
     charaName: MachineGun
     attackPower: 1
@@ -25,7 +25,7 @@ MonoBehaviour:
     discription: "\u6C4E\u7528\u6027\u304C\u9AD8\u304F\u3001\u30B3\u30B9\u30C8\u304C\u5B89\u3044\u30DE\u30B7\u30F3\u30AC\u30F3\u3002\n\u5BFE\u5730\u5BFE\u7A7A"
   - charaNo: 1
     cost: 200
-    charaSprite: {fileID: 0}
+    charaSprite: {fileID: -627861309, guid: 7d26b3836636fc04aaf39b74aa575149, type: 3}
     charaAnim: {fileID: 7400000, guid: cd4dd5b0305769346b00df881e985bf9, type: 2}
     charaName: Cannon
     attackPower: 5

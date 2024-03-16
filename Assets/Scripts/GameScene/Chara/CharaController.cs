@@ -127,7 +127,13 @@ public class CharaController : MonoBehaviour
         // TODO キャラの上に攻撃エフェクトを生成
 
         // TODO 敵キャラ側に用意したダメージ計算用のメソッドを呼び出して、敵にダメージを与える
-        enemy.CulcDamage(attackPower);
+        Debug.Log(enemy);
+
+        if (enemy != null)
+        {
+            enemy.CulcDamage(attackPower);
+        }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)

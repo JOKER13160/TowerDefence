@@ -34,11 +34,11 @@ public class SheetData
 public class GSSReader : MonoBehaviour
 {
 
-    public string SheetID = "読み込むスプレッドシートのアドレス";
+    public string SheetID = "1omxepH6Ozu0nviL1iW9vSve-6c_y-fcM1ssk0b7HxRY/edit#gid=0";//スプレッドシートのアドレス
 
     public UnityEvent OnLoadEnd;　　　// この変数にインスペクターからメソッドを登録しておくと、スプレッドシートを読み込み後にコールバックする
 
-    [Header("読み込みたいシート名を選択")]
+    [Header("SkillData")]       //読み込むシート名
     public SheetData[] sheetDatas;
 
     public void Reload() => StartCoroutine(GetFromWeb());
