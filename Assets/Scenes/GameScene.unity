@@ -3305,6 +3305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charaDataSO: {fileID: 11400000, guid: fa77d46b91d9fa040b2c225961d5dd2e, type: 2}
+  attackRangeSizeSO: {fileID: 11400000, guid: ce5955a2b9866f34abbe0edd137dffa5, type: 2}
 --- !u!4 &963714311
 Transform:
   m_ObjectHideFlags: 0
@@ -3354,6 +3355,7 @@ MonoBehaviour:
     charaNo: 0
     cost: 0
     charaSprite: {fileID: 0}
+    charaAnim: {fileID: 0}
     charaName: 
     attackPower: 0
     attackRange: 0

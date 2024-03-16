@@ -16,6 +16,7 @@ MonoBehaviour:
   - charaNo: 0
     cost: 100
     charaSprite: {fileID: 0}
+    charaAnim: {fileID: 7400000, guid: 69852be7b1d0a394698c19ce10111905, type: 2}
     charaName: MachineGun
     attackPower: 1
     attackRange: 1
@@ -25,6 +26,7 @@ MonoBehaviour:
   - charaNo: 1
     cost: 200
     charaSprite: {fileID: 0}
+    charaAnim: {fileID: 7400000, guid: cd4dd5b0305769346b00df881e985bf9, type: 2}
     charaName: Cannon
     attackPower: 5
     attackRange: 0
@@ -34,6 +36,7 @@ MonoBehaviour:
   - charaNo: 2
     cost: 450
     charaSprite: {fileID: 0}
+    charaAnim: {fileID: 7400000, guid: 210a3746338497a41a395db66b9ec860, type: 2}
     charaName: RailGun
     attackPower: 50
     attackRange: 2
@@ -43,6 +46,7 @@ MonoBehaviour:
   - charaNo: 3
     cost: 200
     charaSprite: {fileID: 0}
+    charaAnim: {fileID: 7400000, guid: 944adbd222096374e86cc980f17f4a3b, type: 2}
     charaName: LaserCannon
     attackPower: 5
     attackRange: 1
@@ -52,6 +56,7 @@ MonoBehaviour:
   - charaNo: 4
     cost: 500
     charaSprite: {fileID: 0}
+    charaAnim: {fileID: 7400000, guid: 0b862c4c6fd2ee544ad9f4afd61933c1, type: 2}
     charaName: Misille
     attackPower: 70
     attackRange: 3

@@ -40,8 +40,9 @@ public class CharaGenerator : MonoBehaviour
     {
         // TODO 配置できる最大キャラ数に達している場合には配置できない
 
-        // 画面をタップ(マウスクリック)し、かつ、配置キャラポップアップが非表示状態なら
-        if (Input.GetMouseButtonDown(0) && !placementCharaSelectPopUp.gameObject.activeSelf)
+        // 画面をタップ(マウスクリック)し、かつ、配置キャラポップアップが非表示状態、かつ、
+        // ゲームの現在の進行状態が Play なら
+        if (Input.GetMouseButtonDown(0) && !placementCharaSelectPopUp.gameObject.activeSelf && gameManager.currentGameState == GameManager.GameState.Play)
         {
 
             // タップ(マウスクリック)の位置を取得してワールド座標に変換し、それをさらにタイルのセル座標に変換
@@ -112,8 +113,7 @@ public class CharaGenerator : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     private IEnumerator CreatePlacementCharaSelectPopUp()
-    {
-
+    { 
         // ポップアップを生成
         placementCharaSelectPopUp = Instantiate(placementCharaSelectPopUpPrefab, canvasTran, false);
 
