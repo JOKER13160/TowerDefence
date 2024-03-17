@@ -15,14 +15,21 @@ public enum SkillType
 
 }
 
+public enum Rarity
+{
+    common,
+    rare,
+    legendary
+}
+
 [Serializable]
 public class SkillData
 {
     public int id;
-    public int skillNo;
     public SkillType skillType;
-    public int rarity;
+    public Rarity rarity;
     public int cost;
+    public int maxLv;
     public string skillName;
     public string description;
 
@@ -41,12 +48,16 @@ public class SkillData
         }
 
         // æ“¾‚µ‚½î•ñ‚ğƒLƒƒƒXƒg‚µ‚Ä‘ã“ü
-        id = int.Parse(datas[0]);
-        skillNo = int.Parse(datas[1]);
-        skillType = (SkillType)Enum.Parse(typeof(SkillType), datas[2]);
-        rarity = int.Parse(datas[3]);
-        cost = int.Parse(datas[4]);
-        skillName = datas[5];
-        description = datas[6];
+        Debug.Log(datas[0]);
+        if (datas != null)
+        {
+            id = int.Parse(datas[0]);
+            skillType = (SkillType)Enum.Parse(typeof(SkillType), datas[1]);
+            rarity = (Rarity)Enum.Parse(typeof(Rarity), datas[2]);
+            cost = int.Parse(datas[3]);
+            maxLv = int.Parse(datas[4]);
+            skillName = datas[5];
+            description = datas[6];
+        }
     }
 }

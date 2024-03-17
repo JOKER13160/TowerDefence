@@ -24,11 +24,13 @@ public class FortressController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("ê⁄ìG");
-        if(collision.gameObject.TryGetComponent(out enemy))
+        if (collision.gameObject.TryGetComponent(out enemy))
         {
             FortressDamage(enemy.attackPower);
+            enemy.DestroyEnemy();
         }
-        enemy.DestroyEnemy();
+        
+        
     }
 
     private void FortressDamage(float amount)

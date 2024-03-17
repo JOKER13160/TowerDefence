@@ -123,6 +123,81 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &3687469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3687472}
+  - component: {fileID: 3687471}
+  - component: {fileID: 3687470}
+  m_Layer: 0
+  m_Name: GSSConverter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &3687470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3687469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fbfe7cd7f58a744bb4b9c2171dc25c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3687471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3687469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4c1046ca56a40b43a148300f85f3458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SheetID: 1omxepH6Ozu0nviL1iW9vSve-6c_y-fcM1ssk0b7HxRY/edit#gid=0
+  OnLoadEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3687470}
+        m_TargetAssemblyTypeName: GSSReceiver, Assembly-CSharp
+        m_MethodName: OnGSSLoadEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sheetDatas:
+  - SheetName: 0
+--- !u!4 &3687472
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3687469}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &83436021
 GameObject:
   m_ObjectHideFlags: 0
@@ -3307,7 +3382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charaDataSO: {fileID: 11400000, guid: fa77d46b91d9fa040b2c225961d5dd2e, type: 2}
   attackRangeSizeSO: {fileID: 11400000, guid: ce5955a2b9866f34abbe0edd137dffa5, type: 2}
-  skillDataSO: {fileID: 0}
+  skillDataSO: {fileID: 11400000, guid: 3441c78e2377d794fa3691a40a5b3d5f, type: 2}
 --- !u!4 &963714311
 Transform:
   m_ObjectHideFlags: 0
@@ -3929,3 +4004,4 @@ SceneRoots:
   - {fileID: 924217614}
   - {fileID: 2012375704}
   - {fileID: 963714311}
+  - {fileID: 3687472}

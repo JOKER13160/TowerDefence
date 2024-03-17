@@ -34,7 +34,7 @@ public class SheetData
 public class GSSReader : MonoBehaviour
 {
 
-    public string SheetID = "1omxepH6Ozu0nviL1iW9vSve-6c_y-fcM1ssk0b7HxRY/edit#gid=0";//スプレッドシートのアドレス
+    public string SheetID = "1omxepH6Ozu0nviL1iW9vSve-6c_y-fcM1ssk0b7HxRY";//スプレッドシートのアドレス
 
     public UnityEvent OnLoadEnd;　　　// この変数にインスペクターからメソッドを登録しておくと、スプレッドシートを読み込み後にコールバックする
 
