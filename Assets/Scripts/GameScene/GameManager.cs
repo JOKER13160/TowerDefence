@@ -30,6 +30,10 @@ public class GameManager : MonoBehaviour
 
     public GameState currentGameState;
 
+    //@“G‚Ìî•ñ‚ğˆêŒ³‰»‚µ‚ÄŠÇ—‚·‚é
+    [SerializeField]
+    private List<EnemyController> enemiesList = new List<EnemyController>();
+
 
     void Start()
     {
@@ -66,11 +70,13 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// “G‚Ìî•ñ‚ğ List ‚É’Ç‰Á
     /// </summary>
-    public void AddEnemyList()
+    /// <param name="enemy"></param>
+    public void AddEnemyList(EnemyController enemy)
     {    //@TODO@“G‚Ìî•ñ‚ğ List ‚É’Ç‰Á‚·‚éÛ‚ÉAˆø”‚ğ’Ç‰Á
 
-        //@TODO@“G‚Ìî•ñ‚ğ List ‚É’Ç‰Á
 
+        //@TODO@“G‚Ìî•ñ‚ğ List ‚É’Ç‰Á
+        enemiesList.Add(enemy);
         // “G‚Ì¶¬”‚ğƒJƒEƒ“ƒgƒAƒbƒv
         generateEnemyCount++;
     }
@@ -93,5 +99,36 @@ public class GameManager : MonoBehaviour
     public void SetGameState(GameState nextGameState)
     {
         currentGameState = nextGameState;//ƒQ[ƒ€‚Ìó‘Ô‚ğİ’è
+    }
+
+    /// <summary>
+    /// ‚·‚×‚Ä‚Ì“G‚ÌˆÚ“®‚ğˆê’â~
+    /// </summary>
+    public void PauseEnemies()
+    {
+        for (int i = 0; i < enemiesList.Count; i++)
+        {
+            enemiesList[i].PauseMove();
+        }
+    }
+
+    /// <summary>
+    /// ‚·‚×‚Ä‚Ì“G‚ÌˆÚ“®‚ğÄŠJ
+    /// </summary>
+    public void ResumeEnemies()
+    {
+        for (int i = 0; i < enemiesList.Count; i++)
+        {
+            enemiesList[i].ResumeMove();
+        }
+    }
+
+    /// <summary>
+    /// “G‚Ìî•ñ‚ğ List ‚©‚çíœ
+    /// </summary>
+    /// <param name="removeEnemy"></param>
+    public void RemoveEnemyList(EnemyController removeEnemy)
+    {
+        enemiesList.Remove(removeEnemy);
     }
 }

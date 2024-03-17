@@ -114,6 +114,8 @@ public class CharaGenerator : MonoBehaviour
     /// <returns></returns>
     private IEnumerator CreatePlacementCharaSelectPopUp()
     { 
+        
+
         // ポップアップを生成
         placementCharaSelectPopUp = Instantiate(placementCharaSelectPopUpPrefab, canvasTran, false);
 
@@ -122,6 +124,9 @@ public class CharaGenerator : MonoBehaviour
 
         // ポップアップを非表示にする
         placementCharaSelectPopUp.gameObject.SetActive(false);
+
+        //GameStateをPlayにする
+        gameManager.currentGameState = GameManager.GameState.Play;
 
         yield return null;
     }
@@ -132,12 +137,11 @@ public class CharaGenerator : MonoBehaviour
     /// </summary>
     public void ActivatePlacementCharaSelectPopUp()
     {
-
-        // TODO ゲームの進行状態をゲーム停止に変更
-
+        //GameStateをPauseにする
+        gameManager.SetGameState(GameManager.GameState.Pause);
 
         // TODO すべての敵の移動を一時停止
-
+        gameManager.PauseEnemies();
 
         // 配置キャラ選択用のポップアップの表示
         placementCharaSelectPopUp.gameObject.SetActive(true);
@@ -154,17 +158,19 @@ public class CharaGenerator : MonoBehaviour
         placementCharaSelectPopUp.gameObject.SetActive(false);
 
 
-        // TODO ゲームオーバーやゲームクリアではない場合
+        // ゲームオーバーやゲームクリアではない場合
+        if (gameManager.currentGameState != GameManager.GameState.GameUp)
+        {
+            // ゲームの進行状態をプレイ中に変更して、ゲーム再開
+            gameManager.SetGameState (GameManager.GameState.Play);
 
+            Debug.Log("再開");
+            // すべての敵の移動を再開
+            gameManager.ResumeEnemies();
 
-        // TODO ゲームの進行状態をプレイ中に変更して、ゲーム再開
+            // TODO カレンシーの加算処理を再開
 
-
-        // TODO すべての敵の移動を再開
-
-
-        // TODO カレンシーの加算処理を再開
-
+        }
     }
 
     /// <summary>
