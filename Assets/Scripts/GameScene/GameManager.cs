@@ -36,6 +36,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private List<EnemyController> enemiesList = new List<EnemyController>();
 
+    //タイマーシステム
+    public int timer;
+
     public enum GameState
     {
         Preparate,  //ゲームの準備中(ロード)
@@ -167,5 +170,15 @@ public class GameManager : MonoBehaviour
             Debug.Log("ゲームクリア");
         }
         
+    }
+
+    // タイマー計測メソッド
+    IEnumerator TimerCount()
+    {
+        while(currentGameState == GameState.Play)
+        {
+          timer++;
+        }
+        yield return null;
     }
 }
