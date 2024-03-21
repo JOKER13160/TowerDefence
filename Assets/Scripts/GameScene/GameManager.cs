@@ -1,9 +1,20 @@
+using DG.Tweening.Core.Easing;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject); // 二重生成を防ぐ
+    }
+
     [SerializeField]
     private EnemyGenerator enemyGenerator;
 
@@ -18,6 +29,13 @@ public class GameManager : MonoBehaviour
 
     public int maxEnemyCount;
 
+    [SerializeField]
+    private int enemyDestroyCount = 0;
+
+    //　敵の情報を一元化して管理する
+    [SerializeField]
+    private List<EnemyController> enemiesList = new List<EnemyController>();
+
     public enum GameState
     {
         Preparate,  //ゲームの準備中(ロード)
@@ -30,9 +48,7 @@ public class GameManager : MonoBehaviour
 
     public GameState currentGameState;
 
-    //　敵の情報を一元化して管理する
-    [SerializeField]
-    private List<EnemyController> enemiesList = new List<EnemyController>();
+    
 
 
     void Start()
@@ -130,5 +146,26 @@ public class GameManager : MonoBehaviour
     public void RemoveEnemyList(EnemyController removeEnemy)
     {
         enemiesList.Remove(removeEnemy);
+    }
+
+    public void EnemyDestroyCount()
+    {
+        enemyDestroyCount++;
+        Debug.Log("EnemyDestroyCount:" + enemyDestroyCount);
+    }
+
+    // ゲームクリア判定
+    public void GameClearJudge()
+    {
+        //　TODO 敵キャラ破壊回数のカウント
+        EnemyDestroyCount();
+
+        //　maxEnemyCount(GameManager)と破壊数を比較
+        if (enemyDestroyCount == maxEnemyCount)
+        {
+            //  クリア判定メソッド呼び出し
+            Debug.Log("ゲームクリア");
+        }
+        
     }
 }

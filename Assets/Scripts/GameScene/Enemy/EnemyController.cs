@@ -22,17 +22,12 @@ public class EnemyController : MonoBehaviour
     [SerializeField,Header("敵の攻撃力")]
     public float attackPower;
 
-
     private Tween tween;
 
     private Vector3[] paths;
 
     private Animator anim;　　　　　　 // Animator コンポーネントの取得用
 
-    //private Vector3 currentPos;    // 敵キャラの現在の位置情報
-    /// <summary>
-    /// 敵の設定
-    /// </summary>
 
     public void SetUpEnemyController(Vector3[] pathsData)
     {
@@ -126,8 +121,16 @@ public class EnemyController : MonoBehaviour
         // TODO 破壊時のエフェクトの生成や関連する処理
 
 
+        
+
+        GameManager.Instance.GameClearJudge();
+
+        GameManager.Instance.RemoveEnemyList(this);
+
         // 敵キャラの破壊
         Destroy(gameObject);
+
+        
     }
 
     /// <summary>

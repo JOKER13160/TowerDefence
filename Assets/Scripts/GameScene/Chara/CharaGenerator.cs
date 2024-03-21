@@ -164,7 +164,7 @@ public class CharaGenerator : MonoBehaviour
             // ゲームの進行状態をプレイ中に変更して、ゲーム再開
             gameManager.SetGameState (GameManager.GameState.Play);
 
-            Debug.Log("再開");
+            //Debug.Log("再開");
             // すべての敵の移動を再開
             gameManager.ResumeEnemies();
 

@@ -39,4 +39,6 @@ public class FortressController : MonoBehaviour
         Debug.Log("Žc‚èHP : " + fortHp);
         slider.value = fortHp;
     }
+
+    
 }

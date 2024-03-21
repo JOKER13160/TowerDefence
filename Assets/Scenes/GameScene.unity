@@ -3153,7 +3153,9 @@ MonoBehaviour:
   generateIntervalTime: 500
   generateEnemyCount: 0
   maxEnemyCount: 10
+  enemyDestroyCount: 0
   currentGameState: 0
+  enemiesList: []
 --- !u!4 &741548629
 Transform:
   m_ObjectHideFlags: 0

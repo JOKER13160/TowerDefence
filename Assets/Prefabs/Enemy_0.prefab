@@ -125,6 +125,7 @@ MonoBehaviour:
   maxHp: 10
   hp: 10
   attackPower: 1
+  gameManager: {fileID: 0}
 --- !u!61 &1818063401918494157
 BoxCollider2D:
   m_ObjectHideFlags: 0
