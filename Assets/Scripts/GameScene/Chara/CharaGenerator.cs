@@ -193,23 +193,31 @@ public class CharaGenerator : MonoBehaviour
     /// <param name="charaData"></param>
     public void CreateChooseChara(CharaData charaData)
     {
+        if (GameData.Instance.nowGold >= charaData.cost)
+        {
+            // コスト支払い
+            PayCharaCost(charaData);
 
-        // TODO コスト支払い
+            // キャラをタップした位置に生成
+            CharaController chara = Instantiate(charaControllerPrefab, gridPos, Quaternion.identity);
 
+            // 位置が左下を 0,0 としているので、中央にくるように調整
+            chara.transform.position = new Vector2(chara.transform.position.x + 0.5f, chara.transform.position.y + 0.5f);
 
-        // キャラをタップした位置に生成
-        CharaController chara = Instantiate(charaControllerPrefab, gridPos, Quaternion.identity);
+            // TODO キャラの設定
+            //chara.SetUpChara(charaData, gameManager);    //  <=  ☆　CharaController 側に SetUpChara メソッドがまだないので、次の手順になってからコメントアウトを解除します。
 
-        // 位置が左下を 0,0 としているので、中央にくるように調整
-        chara.transform.position = new Vector2(chara.transform.position.x + 0.5f, chara.transform.position.y + 0.5f);
-
-        // TODO キャラの設定
-        //chara.SetUpChara(charaData, gameManager);    //  <=  ☆　CharaController 側に SetUpChara メソッドがまだないので、次の手順になってからコメントアウトを解除します。
-
-        Debug.Log(charaData.charaName);   // 選択しているキャラのデータがとどいているかを確認するためのログ表示
+            Debug.Log(charaData.charaName);   // 選択しているキャラのデータがとどいているかを確認するためのログ表示
+        }
+            
 
 
         // TODO キャラを List に追加
 
+    }
+
+    public void PayCharaCost(CharaData charaData)
+    {
+            GameData.Instance.nowGold = GameData.Instance.nowGold - charaData.cost; 
     }
 }

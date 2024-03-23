@@ -1,4 +1,3 @@
-using DG.Tweening.Core.Easing;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,6 +37,9 @@ public class GameManager : MonoBehaviour
 
     //タイマーシステム
     public int timer;
+
+    [SerializeField]
+    //private GameData gameData;
 
     public enum GameState
     {
@@ -82,7 +84,9 @@ public class GameManager : MonoBehaviour
         // 敵の生成準備
         StartCoroutine(enemyGenerator.PreparateEnemyGenerate(this));
 
-        // TODO カレンシーの自動獲得処理の開始
+        // カレンシーの自動獲得処理の開始
+        StartCoroutine(TimerCount());
+        StartCoroutine(GameData.Instance.TimeToGold());
     }
 
 
@@ -173,12 +177,17 @@ public class GameManager : MonoBehaviour
     }
 
     // タイマー計測メソッド
-    IEnumerator TimerCount()
+    public IEnumerator TimerCount()
     {
-        while(currentGameState == GameState.Play)
+        while(true)
         {
-          timer++;
+            if(currentGameState == GameState.Play)
+            {
+                timer++;
+            }
+          
+            yield return new WaitForSeconds(1f);
         }
-        yield return null;
+        
     }
 }

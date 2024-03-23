@@ -77,6 +77,11 @@ public class CharaController : MonoBehaviour
         // 攻撃中の間だけループ処理を繰り返す
         while (isAttack)
         {
+            yield return null;
+            if(GameManager.Instance.currentGameState != GameManager.GameState.Play)
+            {
+                continue;
+            }
 
             // TODO ゲームプレイ中のみ攻撃する
 
@@ -94,10 +99,9 @@ public class CharaController : MonoBehaviour
 
                 // 攻撃回数関連の処理をここに記述する            
                 attackCount--;
+
+                // 残り攻撃回数の表示更新
                 UpdateDisplayAttackCount();
-
-                // TODO 残り攻撃回数の表示更新
-
 
                 // 攻撃回数がなくなったら
                 if (attackCount <= 0)
@@ -111,7 +115,7 @@ public class CharaController : MonoBehaviour
             }
 
             // １フレーム処理を中断する(この処理を書き忘れると無限ループになり、Unity エディターが動かなくなって再起動することになります。注意！)
-            yield return null;
+            //yield return null;
            //yield return new WaitForSeconds(intervalAttackTime);
         }
     }
