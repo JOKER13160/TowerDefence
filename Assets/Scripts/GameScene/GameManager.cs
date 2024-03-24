@@ -38,8 +38,7 @@ public class GameManager : MonoBehaviour
     //タイマーシステム
     public int timer;
 
-    [SerializeField]
-    //private GameData gameData;
+    
 
     public enum GameState
     {

@@ -16,6 +16,11 @@ public class SelectCharaDetail : MonoBehaviour
 
     private CharaData charaData;
 
+    private void Start()
+    {
+        StartCoroutine(ToggleButtonToCost(this.charaData.cost, this.btnSelectCharaDetail));
+    }
+
     /// <summary>
     /// SelectCharaDetail の設定
     /// </summary>
@@ -28,8 +33,8 @@ public class SelectCharaDetail : MonoBehaviour
         this.charaData = charaData;
 
 
-        // TODO ボタンを押せない状態に切り替える
-
+        // ボタンを押せない状態に切り替える
+        //UIManager.Instance.DisableButton(btnSelectCharaDetail);
 
         imgChara.sprite = this.charaData.charaSprite;
 
@@ -37,9 +42,10 @@ public class SelectCharaDetail : MonoBehaviour
         // ボタンにメソッドを登録
         btnSelectCharaDetail.onClick.AddListener(OnClickSelectCharaDetail);
 
-
         // TODO コストに応じてボタンを押せるかどうかを切り替える
-
+        //StartCoroutine(ToggleButtonToCost(charaData.cost, btnSelectCharaDetail));
+        
+        
     }
 
     /// <summary>
@@ -53,5 +59,25 @@ public class SelectCharaDetail : MonoBehaviour
         // タップした SelectCharaDetail の情報をポップアップに送る
         
         placementCharaSelectPop.SetSelectCharaDetail(charaData);
+
+
+    }
+
+    private IEnumerator ToggleButtonToCost(int charaCost,Button button)
+    {
+        //キャラのコストが所持ゴールド以下ならボタン押せる
+        while (true)
+        {
+            if(charaCost <= GameData.Instance.nowGold)
+            {
+                UIManager.Instance.EnableButton(button);
+            }
+            else
+            {
+                UIManager.Instance.DisableButton(button);
+            }
+            yield return null;
+        }
+          
     }
 }

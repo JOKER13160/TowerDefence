@@ -27,7 +27,7 @@ public class CharaGenerator : MonoBehaviour
     private Transform canvasTran;                                           //　PlacementCharaSelectPopUp ゲームオブジェクトの生成位置の登録用
 
     [SerializeField, Header("キャラのデータリスト")]
-    private List<CharaData> charaDatasList = new List<CharaData>();
+    public List<CharaData> charaDatasList = new List<CharaData>();
 
     private PlacementCharaSelectPopUp placementCharaSelectPopUp;　　　　　　//　生成された PlacementCharaSelectPopUp ゲームオブジェクトを代入するための変数
 
@@ -102,6 +102,8 @@ public class CharaGenerator : MonoBehaviour
         // キャラのデータをリスト化
         CreateHaveCharaDatasList();
 
+        // TODO リスト取得
+
 
         // キャラ配置用のポップアップの生成
         yield return StartCoroutine(CreatePlacementCharaSelectPopUp());
@@ -146,6 +148,10 @@ public class CharaGenerator : MonoBehaviour
         // 配置キャラ選択用のポップアップの表示
         placementCharaSelectPopUp.gameObject.SetActive(true);
         placementCharaSelectPopUp.ShowPopUp();
+
+        //　TODO　表示する瞬間にコストと現在値を比較
+        //　現在値はインスタンスで呼べるが、コストは取得する必要あり
+
     }
 
     /// <summary>
@@ -168,7 +174,7 @@ public class CharaGenerator : MonoBehaviour
             // すべての敵の移動を再開
             gameManager.ResumeEnemies();
 
-            // TODO カレンシーの加算処理を再開
+            
 
         }
     }
