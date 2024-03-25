@@ -111,18 +111,7 @@ public class PlacementCharaSelectPopUp : MonoBehaviour
         btnClosePopUp.interactable = isSwitch;
     }
 
-    /// <summary>
-    /// ポップアップの表示
-    /// </summary>
-    public void ShowPopUp()
-    {
-
-        // TODO 各キャラのボタンの制御
-
-
-        // ポップアップの表示
-        canvasGroup.DOFade(1.0f, 0.5f);
-    }
+    
 
     /// <summary>
     /// 選択しているキャラを配置するボタンを押した際の処理
@@ -149,6 +138,25 @@ public class PlacementCharaSelectPopUp : MonoBehaviour
 
         // ポップアップの非表示
         HidePopUp();
+    }
+
+    /// <summary>
+    /// ポップアップの表示
+    /// </summary>
+    public void ShowPopUp()
+    {
+
+        // TODO 各キャラのボタンの制御
+
+        for(int i = 0; i < selectCharaDetailsList.Count; i++)
+        {
+            SelectCharaDetail charaDetail = selectCharaDetailsList[i];
+            charaDetail.ToggleButtonToCost(charaDetail.charaData.cost, charaDetail.btnSelectCharaDetail);
+        }
+        
+
+        // ポップアップの表示
+        canvasGroup.DOFade(1.0f, 0.5f);
     }
 
     /// <summary>

@@ -94,7 +94,7 @@ public class CharaGenerator : MonoBehaviour
     public IEnumerator SetUpCharaGenerator(GameManager gameManager)//外部から持ってきたgamemanagerを
     {
 
-        this.gameManager = gameManager;//このクラスで宣言したgamemanagerに代入
+        this.gameManager = gameManager;//このメソッドで宣言したgamemanagerに代入
 
         // TODO ステージのデータを取得
 

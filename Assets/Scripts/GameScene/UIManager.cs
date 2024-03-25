@@ -26,16 +26,16 @@ public class UIManager : MonoBehaviour
     
     void Start()
     {
-        StartCoroutine(UITextChanger(textGold.text));
+        StartCoroutine(UITextChanger(textGold));
     }
 
     //text nowgold
-    private IEnumerator UITextChanger(string text)
+    private IEnumerator UITextChanger(TextMeshProUGUI text)
     {
         while (true)
         {
-            textGold.text = GameData.Instance.nowGold.ToString();
-            yield return text;
+            text.text = GameData.Instance.nowGold.ToString();
+            yield return null;
         }
         
     }

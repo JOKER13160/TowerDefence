@@ -7,18 +7,18 @@ using DG.Tweening;
 public class SelectCharaDetail : MonoBehaviour
 {
     [SerializeField]
-    private Button btnSelectCharaDetail;
+    public Button btnSelectCharaDetail;
 
     [SerializeField]
     private Image imgChara;
 
     private PlacementCharaSelectPopUp placementCharaSelectPop;
 
-    private CharaData charaData;
+    public CharaData charaData;
 
     private void Start()
     {
-        StartCoroutine(ToggleButtonToCost(this.charaData.cost, this.btnSelectCharaDetail));
+        //ToggleButtonToCost(this.charaData.cost, this.btnSelectCharaDetail);
     }
 
     /// <summary>
@@ -43,8 +43,8 @@ public class SelectCharaDetail : MonoBehaviour
         btnSelectCharaDetail.onClick.AddListener(OnClickSelectCharaDetail);
 
         // TODO コストに応じてボタンを押せるかどうかを切り替える
-        //StartCoroutine(ToggleButtonToCost(charaData.cost, btnSelectCharaDetail));
         
+        //ToggleButtonToCost(this.charaData.cost, btnSelectCharaDetail);
         
     }
 
@@ -63,21 +63,17 @@ public class SelectCharaDetail : MonoBehaviour
 
     }
 
-    private IEnumerator ToggleButtonToCost(int charaCost,Button button)
+    public void ToggleButtonToCost(int charaCost,Button button)
     {
         //キャラのコストが所持ゴールド以下ならボタン押せる
-        while (true)
+        
+        if(charaCost <= GameData.Instance.nowGold)
         {
-            if(charaCost <= GameData.Instance.nowGold)
-            {
-                UIManager.Instance.EnableButton(button);
-            }
-            else
-            {
-                UIManager.Instance.DisableButton(button);
-            }
-            yield return null;
+            UIManager.Instance.EnableButton(button);
         }
-          
+        else
+        {
+            UIManager.Instance.DisableButton(button);
+        }
     }
 }
