@@ -39,6 +39,8 @@ public class CharaController : MonoBehaviour
 
     private Animator anim;
 
+    private SpriteRenderer spriteRenderer;
+
 
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -78,12 +80,14 @@ public class CharaController : MonoBehaviour
         while (isAttack)
         {
             yield return null;
+
+            //プレイ中だけ攻撃
             if(GameManager.Instance.currentGameState != GameManager.GameState.Play)
             {
                 continue;
             }
 
-            // TODO ゲームプレイ中のみ攻撃する
+            
 
             timer++;
 
@@ -130,7 +134,7 @@ public class CharaController : MonoBehaviour
 
         // TODO キャラの上に攻撃エフェクトを生成
 
-        // TODO 敵キャラ側に用意したダメージ計算用のメソッドを呼び出して、敵にダメージを与える
+        // 敵キャラ側に用意したダメージ計算用のメソッドを呼び出して、敵にダメージを与える
         Debug.Log(enemy);
 
         if (enemy != null)
@@ -186,14 +190,15 @@ public class CharaController : MonoBehaviour
         UpdateDisplayAttackCount();
 
         // キャラ画像の設定。アニメを利用するようになったら、この処理はやらない
-        //if (TryGetComponent(out spriteRenderer)) {//　　<=　☆　アニメを登録するので、この一連の画像の差し替え処理の方は行わないように処理をコメントアウトします。
+        if (TryGetComponent(out spriteRenderer))
+        {                                           //　　<=　☆　アニメを登録するので、この一連の画像の差し替え処理の方は行わないように処理をコメントアウトします。
 
-        // 画像を配置したキャラの画像に差し替える
-        //spriteRenderer.sprite = this.charaData.charaSprite;
-        //}　　　　　　
+            //画像を配置したキャラの画像に差し替える
+            spriteRenderer.sprite = this.charaData.charaSprite;
+        }
 
         // キャラごとの AnimationClip を設定
-        SetUpAnimation();
+        //SetUpAnimation();
 
     }
 

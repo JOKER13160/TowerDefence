@@ -149,8 +149,7 @@ public class CharaGenerator : MonoBehaviour
         placementCharaSelectPopUp.gameObject.SetActive(true);
         placementCharaSelectPopUp.ShowPopUp();
 
-        //　TODO　表示する瞬間にコストと現在値を比較
-        //　現在値はインスタンスで呼べるが、コストは取得する必要あり
+        
 
     }
 
@@ -211,7 +210,7 @@ public class CharaGenerator : MonoBehaviour
             chara.transform.position = new Vector2(chara.transform.position.x + 0.5f, chara.transform.position.y + 0.5f);
 
             // TODO キャラの設定
-            //chara.SetUpChara(charaData, gameManager);    //  <=  ☆　CharaController 側に SetUpChara メソッドがまだないので、次の手順になってからコメントアウトを解除します。
+            chara.SetUpChara(charaData, gameManager);    //  <=  ☆　CharaController 側に SetUpChara メソッドがまだないので、次の手順になってからコメントアウトを解除します。
 
             Debug.Log(charaData.charaName);   // 選択しているキャラのデータがとどいているかを確認するためのログ表示
         }
