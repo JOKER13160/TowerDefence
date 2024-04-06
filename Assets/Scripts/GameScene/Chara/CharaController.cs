@@ -160,7 +160,7 @@ public class CharaController : MonoBehaviour
             enemy.CulcDamage(attackPower);
         }
 
-        if (generateTran != null)
+        else if (generateTran != null)
         {
             generateTran.HPDamage(ref generateTran.enemyGeneratePointHP,
                 generateTran.enemyGeneratePointMaxHP, attackPower);

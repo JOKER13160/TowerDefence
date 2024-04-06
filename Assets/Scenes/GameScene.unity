@@ -889,6 +889,7 @@ MonoBehaviour:
   enemyGeneratePointMaxHP: 10
   slider: {fileID: 540627495}
   destroyedPosition: {fileID: 193712442}
+  enemyGenerator: {fileID: 692256691}
   canGenerate: 1
 --- !u!61 &193712444
 BoxCollider2D:
@@ -3757,12 +3758,11 @@ MonoBehaviour:
   pathDatas:
   - {fileID: 2673027515195692986, guid: 6736804ffa033dc48a5bb3e66467d210, type: 3}
   - {fileID: 3853181802464067095, guid: c24828c83548b5945a678c7b8f5981db, type: 3}
-  - {fileID: 4334618605463659208, guid: 8286d2a65f249964ab5fff3d1b821b47, type: 3}
-  - {fileID: 6552229793214702988, guid: bcdb584dbaca83c4da57e5f1d1aa1014, type: 3}
   pathLinePrefab: {fileID: 560959724272644973, guid: 33a6fecb5df12b7468983d5ea571e7b1, type: 3}
   enemyGeneratePoints:
   - {fileID: 193712443}
-  - {fileID: 1863831828}
+  enemyGeneratePositions:
+  - {fileID: 193712442}
 --- !u!4 &692256692
 Transform:
   m_ObjectHideFlags: 0
@@ -3892,6 +3892,9 @@ MonoBehaviour:
   enemiesList: []
   timer: 0
   currentGameState: 0
+  enemyGeneratorList:
+  - {fileID: 692256691}
+  - {fileID: 1146374746}
 --- !u!4 &741548629
 Transform:
   m_ObjectHideFlags: 0
@@ -4577,6 +4580,59 @@ Transform:
   - {fileID: 641013632}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1146374745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1146374747}
+  - component: {fileID: 1146374746}
+  m_Layer: 0
+  m_Name: EnemyGenerator (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1146374746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146374745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d7a8964ae9826f468d8d542c18699fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyControllerPrefab: {fileID: 3879496410523118915, guid: 507eb16bc45b6a148a0edf81b8c4f776, type: 3}
+  pathDatas:
+  - {fileID: 4334618605463659208, guid: 8286d2a65f249964ab5fff3d1b821b47, type: 3}
+  - {fileID: 6552229793214702988, guid: bcdb584dbaca83c4da57e5f1d1aa1014, type: 3}
+  pathLinePrefab: {fileID: 560959724272644973, guid: 33a6fecb5df12b7468983d5ea571e7b1, type: 3}
+  enemyGeneratePoints:
+  - {fileID: 1863831828}
+  enemyGeneratePositions:
+  - {fileID: 1863831827}
+--- !u!4 &1146374747
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146374745}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1160375517
 GameObject:
   m_ObjectHideFlags: 0
@@ -4963,6 +5019,7 @@ MonoBehaviour:
   enemyGeneratePointMaxHP: 10
   slider: {fileID: 668563417}
   destroyedPosition: {fileID: 1863831827}
+  enemyGenerator: {fileID: 1146374746}
   canGenerate: 1
 --- !u!61 &1863831829
 BoxCollider2D:
@@ -5459,6 +5516,7 @@ SceneRoots:
   - {fileID: 1124706720}
   - {fileID: 1066092508}
   - {fileID: 692256692}
+  - {fileID: 1146374747}
   - {fileID: 741548629}
   - {fileID: 808543299}
   - {fileID: 924217614}

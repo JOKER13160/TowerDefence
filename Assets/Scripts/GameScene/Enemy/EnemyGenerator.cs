@@ -172,4 +172,9 @@ public class EnemyGenerator : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
     }
+
+    public void PrepareRemoveEnemyGenerator()
+    {
+        gameManager.RemoveEnemyGenerator(this);
+    }
 }

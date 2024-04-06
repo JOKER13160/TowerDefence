@@ -97,13 +97,16 @@ public class EnemyController : MonoBehaviour
             // 破壊処理を実行するメソッドを呼び出す
             DestroyEnemy();
         }
+        else
+        {
 
-        // TODO 演出用のエフェクト生成
+
+            // TODO 演出用のエフェクト生成
 
 
-        // ヒットストップ演出
-        StartCoroutine(WaitMove());
-
+            // ヒットストップ演出
+            StartCoroutine(WaitMove());
+        }
     }
 
     /// <summary>

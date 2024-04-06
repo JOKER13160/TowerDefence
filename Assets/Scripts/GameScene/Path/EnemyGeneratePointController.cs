@@ -33,8 +33,9 @@ public class EnemyGeneratePointController : MonoBehaviour
         slider.value = hp;
         if (hp <= 0)
         {
-            enemyGenerator.enemyGeneratePositions = destroyedPosition;
-            Destroy(gameObject);
+            //enemyGenerator.enemyGeneratePositions[0] = destroyedPosition;
+            //Destroy(gameObject);
+            canGenerate = false;
             Debug.Log("¶¬’n“_”j‰ó");
             DestroyedPosition();
         }
@@ -43,10 +44,11 @@ public class EnemyGeneratePointController : MonoBehaviour
     private void DestroyedPosition()
     {
         Debug.Log(destroyedPosition.position);
+        enemyGenerator.PrepareRemoveEnemyGenerator();
     }
 
     private void OnDestroy()
     {
-        canGenerate = false;
+        
     }
 }

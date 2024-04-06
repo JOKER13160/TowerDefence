@@ -52,7 +52,8 @@ public class GameManager : MonoBehaviour
 
     public GameState currentGameState;
 
-    
+    [SerializeField]
+    private List <EnemyGenerator> enemyGeneratorList = new List<EnemyGenerator>();
 
 
     void Start()
@@ -81,7 +82,11 @@ public class GameManager : MonoBehaviour
         SetGameState(GameState.Play);
 
         // 敵の生成準備
-        StartCoroutine(enemyGenerator.PreparateEnemyGenerate(this));
+        foreach (EnemyGenerator enemyGenerator in enemyGeneratorList)
+        {
+            StartCoroutine(enemyGenerator.PreparateEnemyGenerate(this));
+        }
+        
 
         // カレンシーの自動獲得処理の開始
         StartCoroutine(TimerCount());
@@ -188,6 +193,20 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
         
+    }
+
+    public void RemoveEnemyGenerator(EnemyGenerator enemyGenerator)
+    {
+        enemyGeneratorList.Remove(enemyGenerator);
+        JudgeGenerateList();
+    }
+
+    private void JudgeGenerateList()
+    {
+        if (enemyGeneratorList.Count == 0)
+        {
+            Debug.Log("ゲームクリア");
+        }
     }
 
     
