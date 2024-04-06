@@ -14,10 +14,10 @@ public class EnemyController : MonoBehaviour
     private float moveSpeed;
 
     [SerializeField, Header("Å‘åHP")]
-    private float maxHp;
+    public float maxHp;
 
     [SerializeField]
-    private float hp;
+    public float hp;
 
     [SerializeField,Header("“G‚ÌUŒ‚—Í")]
     public float attackPower;

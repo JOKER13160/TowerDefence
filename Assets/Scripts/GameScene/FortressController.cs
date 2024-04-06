@@ -35,7 +35,7 @@ public class FortressController : MonoBehaviour
 
     private void FortressDamage(float amount)
     {
-        fortHp = Mathf.Clamp(fortHp - amount, 0, fortMaxHp);
+        fortHp = Mathf.Clamp(fortHp -= amount, 0, fortMaxHp);
         Debug.Log("Žc‚èHP : " + fortHp);
         slider.value = fortHp;
     }

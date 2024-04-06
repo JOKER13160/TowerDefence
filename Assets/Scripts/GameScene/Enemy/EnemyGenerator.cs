@@ -14,6 +14,11 @@ public class EnemyGenerator : MonoBehaviour
     [SerializeField]
     private DrawPathLine pathLinePrefab;
 
+    [SerializeField]
+    private EnemyGeneratePointController[] enemyGeneratePoints;
+
+    public Transform[] enemyGeneratePositions;
+
 
     private GameManager gameManager;
     
@@ -81,22 +86,37 @@ public class EnemyGenerator : MonoBehaviour
         // ランダムな値を配列の最大要素数内で取得
         int randomValue = Random.Range(0, pathDatas.Length);
 
-        // 指定した位置に敵を生成
-        EnemyController enemyController = Instantiate(enemyControllerPrefab, pathDatas[randomValue].generateTran.position, Quaternion.identity);
+        // if .position
+        Debug.Log("敵の生成地点：" + pathDatas[randomValue].generateTran.position);
+
+        //今回選ばれた生成地点と、破壊された生成地点が一緒で、生成許可があるならば、生成
+        foreach (EnemyGeneratePointController enemyGeneratePoint in enemyGeneratePoints)
+        {
+            if (pathDatas[randomValue].generateTran.position == enemyGeneratePoint.transform.position)
+            {
+                if(enemyGeneratePoint.canGenerate == true)
+                {
+                    // 指定した位置に敵を生成
+                    EnemyController enemyController = Instantiate(enemyControllerPrefab, pathDatas[randomValue].generateTran.position, Quaternion.identity);
 
 
-        //  移動する地点を取得
-        Vector3[] paths = pathDatas[randomValue].pathTranArray.Select(x => x.position).ToArray();
+                    //  移動する地点を取得
+                    Vector3[] paths = pathDatas[randomValue].pathTranArray.Select(x => x.position).ToArray();
 
 
-        //  敵キャラの初期設定を行い、移動を一時停止しておく
-        enemyController.SetUpEnemyController(paths);
+                    //  敵キャラの初期設定を行い、移動を一時停止しておく
+                    enemyController.SetUpEnemyController(paths);
 
 
-        //  敵の移動経路のライン表示を生成の準備
-        StartCoroutine(PreparateCreatePathLine(paths, enemyController));
+                    //  敵の移動経路のライン表示を生成の準備
+                    StartCoroutine(PreparateCreatePathLine(paths, enemyController));
 
-        return enemyController;
+                    return enemyController;
+                }
+            }
+        }
+
+        return null; // 条件を満たす生成地点が見つからなかった場合、null を返すか、適切な処理を行ってください
 
     }
 

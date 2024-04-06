@@ -18,6 +18,9 @@ public class CharaController : MonoBehaviour
     private EnemyController enemy;
 
     [SerializeField]
+    private EnemyGeneratePointController generateTran;
+
+    [SerializeField]
     private int attackCount = 10;// TODO 現在の攻撃回数の残り。あとで CharaData クラスの値を反映させる
 
     [SerializeField]
@@ -50,9 +53,6 @@ public class CharaController : MonoBehaviour
         if (!isAttack && !enemy)
         {　　　　　　　　　　　　　　　　　　　　　　　　
             Debug.Log("敵発見");
-
-            // 敵の情報(EnemyController)を取得する。EnemyController がアタッチされているゲームオブジェクトを判別しているので、ここで、今までの Tag による判定と同じ動作で判定が行えます。
-            // そのため、☆①の処理から Tag の処理を削除しています
             if (collision.gameObject.TryGetComponent(out enemy))
             {
                 Debug.Log("enemy取得");
@@ -63,6 +63,24 @@ public class CharaController : MonoBehaviour
                 StartCoroutine(PrepareteAttack());
             }
         }
+        
+        if (!isAttack && !generateTran)
+        {　　　　　　　　　　　　　　　　　　　　　　　　
+            
+            if (collision.gameObject.TryGetComponent(out generateTran))
+            {
+                Debug.Log("生成地点発見");
+                Debug.Log("generateTran取得");
+                // 情報を取得できたら、攻撃状態にする
+                isAttack = true;
+
+                // 攻撃の準備に入る
+                StartCoroutine(PrepareteAttack());
+            }
+        }
+
+        //generateTran取得
+
     }
 
     /// <summary>
@@ -142,6 +160,11 @@ public class CharaController : MonoBehaviour
             enemy.CulcDamage(attackPower);
         }
 
+        if (generateTran != null)
+        {
+            generateTran.HPDamage(ref generateTran.enemyGeneratePointHP,
+                generateTran.enemyGeneratePointMaxHP, attackPower);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -154,6 +177,12 @@ public class CharaController : MonoBehaviour
 
             isAttack = false;
             enemy = null;
+        }
+
+        if (collision.gameObject.TryGetComponent(out generateTran))
+        {
+            isAttack = false;
+            generateTran = null;
         }
     }
 
