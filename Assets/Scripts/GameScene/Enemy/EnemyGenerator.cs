@@ -41,7 +41,12 @@ public class EnemyGenerator : MonoBehaviour
         // isEnemyGenetate が true の間はループする
         while (gameManager.isEnemyGenerate)
         {
-            if(this.gameManager.currentGameState == GameManager.GameState.Play)
+            if (!enemyGeneratePoints[0].canGenerate)
+            {
+                break;
+            }
+
+            if (this.gameManager.currentGameState == GameManager.GameState.Play)
             {
 
             
@@ -73,7 +78,7 @@ public class EnemyGenerator : MonoBehaviour
         }
 
         // TODO 生成終了後の処理を記述する
-
+        Debug.Log("生成終了");
     }
 
     /// <summary>

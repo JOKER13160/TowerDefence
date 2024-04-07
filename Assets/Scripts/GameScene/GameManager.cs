@@ -135,7 +135,7 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < enemiesList.Count; i++)
         {
-            enemiesList[i].PauseMove();
+            enemiesList[i]?.PauseMove();
         }
     }
 
