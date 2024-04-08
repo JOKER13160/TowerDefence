@@ -1363,7 +1363,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3089606595152479872, guid: 218457ba91105f740b1179c8c15b5bca, type: 3}
       propertyPath: m_Text
-      value: "\u30AD\u30E3\u30E9\u306E\u540D\u524D"
+      value: "\u30B4\u30FC\u30EB\u30C9\u30BF\u30EF\u30FC"
       objectReference: {fileID: 0}
     - target: {fileID: 8741184880904470086, guid: 218457ba91105f740b1179c8c15b5bca, type: 3}
       propertyPath: m_Pivot.x
