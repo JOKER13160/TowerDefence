@@ -56,6 +56,11 @@ public class GSSReceiver : MonoBehaviour
                 new List<SkillData>(sheetDataslist.Find(x => x.SheetName == SheetName.SkillData).DatasList.Select(x => new SkillData(x)).ToList());
 
             // TODO ‘¼‚Ì SO ‚ð’Ç‰Á‚·‚é
+            DataBaseManager.instance.towerDataSO.towerDatasList =
+                new List<TowerData>(sheetDataslist.Find(x => x.SheetName == SheetName.TowerData).DatasList.Select(x => new TowerData(x)).ToList());
+
+            DataBaseManager.instance.disasterDataSO.disasterDatasList =
+                new List<DisasterData>(sheetDataslist.Find(x => x.SheetName == SheetName.DisasterData).DatasList.Select(x => new DisasterData(x)).ToList());
 
         }
     }

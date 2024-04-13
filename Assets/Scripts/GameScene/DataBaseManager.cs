@@ -10,6 +10,8 @@ public class DataBaseManager : MonoBehaviour
     public CharaDataSO charaDataSO;
     public AttackRangeSizeSO attackRangeSizeSO;
     public SkillDataSO skillDataSO;
+    public TowerDataSO towerDataSO;
+    public DisasterDataSO disasterDataSO;
 
     void Awake()
     {

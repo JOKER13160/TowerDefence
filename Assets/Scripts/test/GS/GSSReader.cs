@@ -11,8 +11,9 @@ using UnityEngine.Events;
 public enum SheetName
 {
     
-    SkillData      // 自分の作成したスプレッドシート内のシートの名前を登録します
-    
+    SkillData,      // 自分の作成したスプレッドシート内のシートの名前を登録します
+    TowerData,
+    DisasterData
 
 }
 

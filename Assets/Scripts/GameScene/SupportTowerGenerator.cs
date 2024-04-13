@@ -5,6 +5,8 @@ using UnityEngine;
 public class SupportTowerGenerator : MonoBehaviour
 {
     public GameObject goldTowerPrefab; // ゴールドタワーのプレハブ
+    [SerializeField]
+    private GameObject PopUp;
     private void OnMouseDown()
     {
         //これがクリックされたらswitch
@@ -13,6 +15,7 @@ public class SupportTowerGenerator : MonoBehaviour
             case "Gold":
                 //Goldがクリックされた時の処理
                 Debug.Log("ゴールドタワー");
+                UIManager.Instance.TogglePopup(PopUp);
                 GenerateGoldTower();
                 break;
         }

@@ -183,6 +183,8 @@ MonoBehaviour:
         m_CallState: 1
   sheetDatas:
   - SheetName: 0
+  - SheetName: 1
+  - SheetName: 2
 --- !u!4 &3687472
 Transform:
   m_ObjectHideFlags: 0
@@ -518,6 +520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goldTowerPrefab: {fileID: 7056091009917707582, guid: dc7dbe5d03788c94ea3cbe143a060d31, type: 3}
+  PopUp: {fileID: 403847087}
 --- !u!1 &83436021
 GameObject:
   m_ObjectHideFlags: 0
@@ -4892,6 +4895,8 @@ MonoBehaviour:
   charaDataSO: {fileID: 11400000, guid: fa77d46b91d9fa040b2c225961d5dd2e, type: 2}
   attackRangeSizeSO: {fileID: 11400000, guid: ce5955a2b9866f34abbe0edd137dffa5, type: 2}
   skillDataSO: {fileID: 11400000, guid: 3441c78e2377d794fa3691a40a5b3d5f, type: 2}
+  towerDataSO: {fileID: 11400000, guid: 593d10afd74545c4ebcfbf0282288f93, type: 2}
+  disasterDataSO: {fileID: 11400000, guid: a5d1e792a0081584b9b8e53cceb9d317, type: 2}
 --- !u!4 &963714311
 Transform:
   m_ObjectHideFlags: 0
@@ -5499,6 +5504,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1160375517}
   m_CullTransparentMesh: 1
+--- !u!1001 &1285753749
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4262596378623282077, guid: dc7dbe5d03788c94ea3cbe143a060d31, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4262596378623282077, guid: dc7dbe5d03788c94ea3cbe143a060d31, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4262596378623282077, guid: dc7dbe5d03788c94ea3cbe143a060d31, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 879741469
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412230945651248274, guid: dc7dbe5d03788c94ea3cbe143a060d31, type: 3}
+      propertyPath: towerData.GetGold
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412230945651248274, guid: dc7dbe5d03788c94ea3cbe143a060d31, type: 3}
+      propertyPath: towerData.Interval
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441692217506747888, guid: dc7dbe5d03788c94ea3cbe143a060d31, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441692217506747888, guid: dc7dbe5d03788c94ea3cbe143a060d31, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441692217506747888, guid: dc7dbe5d03788c94ea3cbe143a060d31, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441692217506747888, guid: dc7dbe5d03788c94ea3cbe143a060d31, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441692217506747888, guid: dc7dbe5d03788c94ea3cbe143a060d31, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441692217506747888, guid: dc7dbe5d03788c94ea3cbe143a060d31, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441692217506747888, guid: dc7dbe5d03788c94ea3cbe143a060d31, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441692217506747888, guid: dc7dbe5d03788c94ea3cbe143a060d31, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441692217506747888, guid: dc7dbe5d03788c94ea3cbe143a060d31, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441692217506747888, guid: dc7dbe5d03788c94ea3cbe143a060d31, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7056091009917707582, guid: dc7dbe5d03788c94ea3cbe143a060d31, type: 3}
+      propertyPath: m_Name
+      value: GoldTower
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dc7dbe5d03788c94ea3cbe143a060d31, type: 3}
 --- !u!1001 &1416225053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5845,7 +5927,7 @@ GameObject:
   - component: {fileID: 1760333169}
   - component: {fileID: 1760333168}
   m_Layer: 5
-  m_Name: btnChooseChara
+  m_Name: btnChooseTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6818,3 +6900,4 @@ SceneRoots:
   - {fileID: 221153733}
   - {fileID: 1967886261}
   - {fileID: 75983004}
+  - {fileID: 1285753749}

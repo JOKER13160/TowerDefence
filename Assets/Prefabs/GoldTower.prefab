@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6441692217506747888}
   - component: {fileID: 4262596378623282077}
+  - component: {fileID: 4412230945651248274}
   m_Layer: 0
   m_Name: GoldTower
   m_TagString: Untagged
@@ -84,3 +85,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4412230945651248274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7056091009917707582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccb60606adaeaca4999c9d05eccb974c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerData:
+    TowerName: 
+    TowerID: 0
+    Cost: 0
+    Interval: 0
+    GetGold: 0

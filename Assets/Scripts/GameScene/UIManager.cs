@@ -49,4 +49,30 @@ public class UIManager : MonoBehaviour
     {
         button.interactable = true;
     }
+
+    // ポップアップの表示状態を切り替えるメソッド
+    public void TogglePopup(GameObject popup)
+    {
+        // ポップアップがアクティブなら非表示にし、非アクティブなら表示する
+        if (popup.activeSelf)
+        {
+            HidePopup(popup);
+        }
+        else
+        {
+            ShowPopup(popup);
+        }
+    }
+
+    // ポップアップを表示するメソッド
+    void ShowPopup(GameObject popup)
+    {
+        popup.SetActive(true);
+    }
+
+    // ポップアップを非表示にするメソッド
+    void HidePopup(GameObject popup)
+    {
+        popup.SetActive(false);
+    }
 }
