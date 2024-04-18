@@ -66,7 +66,7 @@ public class PlacementCharaSelectPopUp : MonoBehaviour
         canvasGroup.alpha = 0;
 
         // 各ボタンの操作を押せない状態にする
-        SwithcActivateButtons(false);
+        SwitchActivateButtons(false);
 
 
         // スクリプタブル・オブジェクトに登録されているキャラ分(引数で受け取った情報)を利用して
@@ -98,14 +98,14 @@ public class PlacementCharaSelectPopUp : MonoBehaviour
         btnClosePopUp.onClick.AddListener(OnClickClosePopUp);
 
         // 各ボタンを押せる状態にする
-        SwithcActivateButtons(true);
+        SwitchActivateButtons(true);
     }
 
     /// <summary>
     /// 各ボタンのアクティブ状態の切り替え
     /// </summary>
     /// <param name="isSwitch"></param>
-    public void SwithcActivateButtons(bool isSwitch)
+    public void SwitchActivateButtons(bool isSwitch)
     {
         btnChooseChara.interactable = isSwitch;
         btnClosePopUp.interactable = isSwitch;
