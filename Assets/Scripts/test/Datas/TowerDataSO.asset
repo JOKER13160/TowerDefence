@@ -12,4 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e6014b25f3557440ab3a10c564bdc9f, type: 3}
   m_Name: TowerDataSO
   m_EditorClassIdentifier: 
-  towerDatasList: []
+  towerDatasList:
+  - TowerName: goldBox
+    TowerID: 1
+    Cost: 300
+    Interval: 3
+    GetGold: 50
+    ElementType: 0
+  - TowerName: bank
+    TowerID: 2
+    Cost: 500
+    Interval: 5
+    GetGold: 100
+    ElementType: 1
